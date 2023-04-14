@@ -1,21 +1,45 @@
-const core = require('@actions/core');
-const wait = require('./wait');
+import core from '@actions/core';
+import {
+  includeKeysInLocale,
+  uploadLocaleFile,
+  checkUploadStatus,
+  excludeKeysInLocale,
+} from './src/_phrase_utils.mjs';
 
-
-// most @actions toolkit packages have async methods
-async function run() {
+const run = async () => {
   try {
-    const ms = core.getInput('milliseconds');
-    core.info(`Waiting ${ms} milliseconds ...`);
-
-    core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms));
-    core.info((new Date()).toTimeString());
-
-    core.setOutput('time', new Date().toTimeString());
+    const reset = core.getInput('reset');
+    if (reset) {
+      await phraseResetExclusions();
+    } else {
+      await phraseSync();
+    }
   } catch (error) {
     core.setFailed(error.message);
   }
-}
+};
+
+const phraseResetExclusions = async () => {
+  // Re-include all keys for "en" and "de"
+  await includeKeysInLocale('en');
+  await includeKeysInLocale('de');
+
+  core.info('Successfully re-included all keys.');
+};
+
+const phraseSync = async () => {
+  // Upload en.json to Phrase and grab the uploadId
+  const uploadId = await uploadLocaleFile();
+  // Check above upload's status until successful and grab the number of unmentioned keys
+  const nUnmentionedKeys = await checkUploadStatus(uploadId);
+
+  // If there are unmentioned keys, exclude them from "en" and "de"
+  if (nUnmentionedKeys > 0) {
+    await excludeKeysInLocale('en', uploadId, nUnmentionedKeys);
+    await excludeKeysInLocale('de', uploadId, nUnmentionedKeys);
+
+    console.log('\nSuccessfully excluded unmentioned keys.');
+  }
+};
 
 run();

@@ -1,13 +1,16 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Phrase sync'
+description: 'Syncs Phrase via en.json upload'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  phrase-token: # available as process.env.INPUT_PHRASE_TOKEN
+    description: 'Phrase API access token'
     required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  project-id: # available as process.env.PROJECT_ID
+    description: 'Phrase project id'
+    required: true
+  reset:
+    description: 'If this is "true", the action will reset the exclusions instead'
+    required: false
+    default: false
 runs:
   using: 'node16'
   main: 'dist/index.js'
