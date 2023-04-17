@@ -6,7 +6,7 @@ const FormData = require('form-data');
 const fs = require('fs');
 const { sleep } = require('./sleep.js');
 
-const PROJECT_ID = process.env.PROJECT_ID;
+const PROJECT_ID = process.env.INPUT_PROJECT_ID;
 const BASE_API_URL = `https://api.phrase.com/v2/projects/${PROJECT_ID}`;
 
 const TOKEN = process.env.INPUT_PHRASE_TOKEN;

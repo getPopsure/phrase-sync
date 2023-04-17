@@ -8127,7 +8127,7 @@ const FormData = __nccwpck_require__(4334);
 const fs = __nccwpck_require__(7147);
 const { sleep } = __nccwpck_require__(8195);
 
-const PROJECT_ID = process.env.PROJECT_ID;
+const PROJECT_ID = process.env.INPUT_PROJECT_ID;
 const BASE_API_URL = `https://api.phrase.com/v2/projects/${PROJECT_ID}`;
 
 const TOKEN = process.env.INPUT_PHRASE_TOKEN;
