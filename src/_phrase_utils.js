@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 /* eslint-disable no-await-in-loop */
-import fetch from 'cross-fetch';
-import FormData from 'form-data';
-import fs from 'fs';
-import { sleep } from './sleep.mjs';
+const fetch = require('cross-fetch');
+const FormData = require('form-data');
+const fs = require('fs');
+const { sleep } = require('./sleep.js');
 
 const PROJECT_ID = process.env.PROJECT_ID;
 const BASE_API_URL = `https://api.phrase.com/v2/projects/${PROJECT_ID}`;

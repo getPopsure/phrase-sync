@@ -1,10 +1,10 @@
-import core from '@actions/core';
-import {
+const core = require('@actions/core');
+const {
   includeKeysInLocale,
   uploadLocaleFile,
   checkUploadStatus,
   excludeKeysInLocale,
-} from './src/_phrase_utils.mjs';
+} = require('./src/_phrase_utils');
 
 const run = async () => {
   try {

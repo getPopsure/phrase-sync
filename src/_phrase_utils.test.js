@@ -3,16 +3,16 @@ import fetch from 'cross-fetch';
 import fs from 'fs';
 import FormData from 'form-data';
 
-import * as sleepModule from './sleep.mjs';
+import * as sleepModule from './sleep';
 
 import {
   excludeKeysInLocale,
   checkUploadStatus,
   uploadLocaleFile,
   includeKeysInLocale,
-} from './_phrase_utils.mjs';
+} from './_phrase_utils';
 
-jest.mock('./sleep.mjs', () => ({
+jest.mock('./sleep', () => ({
   sleep: jest.fn(async () => {}),
 }));
 
