@@ -48,6 +48,7 @@ jobs:
         with:
           phrase_token: ${{ secrets.PHRASE_AUTH_TOKEN }}
           project_id: YOUR_PROJECT_ID_GOES_HERE
+          english_locale_file_path: ./src/locales/en.json
           reset: true
 ```
 
