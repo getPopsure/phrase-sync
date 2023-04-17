@@ -24,9 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       - uses: getPopsure/phrase-sync@v0.0.8
         with:
           phrase_token: ${{ secrets.PHRASE_AUTH_TOKEN }}
