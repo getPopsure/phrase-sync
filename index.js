@@ -9,7 +9,7 @@ const {
 const run = async () => {
   try {
     const reset = core.getInput('reset');
-    if (reset) {
+    if (reset === 'true') {
       await phraseResetExclusions();
     } else {
       await phraseSync();
