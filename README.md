@@ -1,6 +1,6 @@
 # Feather Phrase Sync
 
-This repository contains the shared Github [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) that enables syncing up a repo with Phrase via upload of the 'en' locale file.
+This repository contains a shared Github Action to sync up a repo with Phrase via upload of the 'en' locale file.
 
 ## Usage
 
