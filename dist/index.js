@@ -8132,6 +8132,8 @@ const BASE_API_URL = `https://api.phrase.com/v2/projects/${PROJECT_ID}`;
 
 const TOKEN = process.env.INPUT_PHRASE_TOKEN;
 
+console.log('P-ENV', process.env);
+
 // Upload en.json file to Phrase
 const uploadLocaleFile = async () => {
   const formData = new FormData();
