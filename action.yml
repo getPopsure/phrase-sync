@@ -1,10 +1,10 @@
 name: 'Phrase sync'
 description: 'Syncs Phrase via en.json upload'
 inputs:
-  phrase-token: # available as process.env.INPUT_PHRASE_TOKEN
+  phrase_token: # available as process.env.INPUT_PHRASE_TOKEN
     description: 'Phrase API access token'
     required: true
-  project-id: # available as process.env.PROJECT_ID
+  project_id: # available as process.env.PROJECT_ID
     description: 'Phrase project id'
     required: true
   reset:
