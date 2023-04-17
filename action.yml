@@ -7,6 +7,9 @@ inputs:
   project_id: # available as process.env.PROJECT_ID
     description: 'Phrase project id'
     required: true
+  english_locale_file_path: # available as process.env.INPUT_ENGLISH_LOCALE_FILE_PATH
+    description: 'Path to english locale file'
+    required: true
   reset:
     description: 'If this is "true", the action will reset the exclusions instead'
     required: false

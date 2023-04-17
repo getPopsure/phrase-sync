@@ -1,6 +1,6 @@
 {
   "name": "phrase-sync",
-  "version": "1.0.0",
+  "version": "0.0.8",
   "description": "Phrase sync github action",
   "main": "index.js",
   "scripts": {
