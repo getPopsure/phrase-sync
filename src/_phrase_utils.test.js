@@ -200,7 +200,9 @@ describe('uploadLocaleFile', () => {
 
     const result = await uploadLocaleFile();
 
-    expect(fs.createReadStream).toHaveBeenCalledWith('./src/locales/en.json');
+    expect(fs.createReadStream).toHaveBeenCalledWith(
+      process.env.INPUT_ENGLISH_LOCALE_FILE_PATH,
+    );
     expect(FormData.prototype.append).toHaveBeenCalledWith(
       'file',
       mockFileStream,
@@ -255,7 +257,9 @@ describe('uploadLocaleFile', () => {
       expect(error).toBeInstanceOf(Error);
     }
 
-    expect(fs.createReadStream).toHaveBeenCalledWith('./src/locales/en.json');
+    expect(fs.createReadStream).toHaveBeenCalledWith(
+      process.env.INPUT_ENGLISH_LOCALE_FILE_PATH,
+    );
     expect(FormData.prototype.append).toHaveBeenCalledWith(
       'file',
       mockFileStream,

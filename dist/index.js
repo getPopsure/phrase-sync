@@ -8129,13 +8129,14 @@ const { sleep } = __nccwpck_require__(8195);
 
 const PROJECT_ID = process.env.INPUT_PROJECT_ID;
 const BASE_API_URL = `https://api.phrase.com/v2/projects/${PROJECT_ID}`;
+const ENGLISH_LOCALE_FILE_PATH = process.env.INPUT_ENGLISH_LOCALE_FILE_PATH;
 
 const TOKEN = process.env.INPUT_PHRASE_TOKEN;
 
-// Upload en.json file to Phrase
+// Upload english locale file to Phrase
 const uploadLocaleFile = async () => {
   const formData = new FormData();
-  const fileStream = fs.createReadStream('./src/locales/en.json');
+  const fileStream = fs.createReadStream(ENGLISH_LOCALE_FILE_PATH);
 
   // Set form data properties
   // These would be the -F parameters of a curl call:
