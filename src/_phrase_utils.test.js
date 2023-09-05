@@ -370,7 +370,7 @@ describe('checkUploadStatus', () => {
     } catch (error) {
       expect(error).toBeInstanceOf(Error);
     }
-    expect(fetch).toHaveBeenCalledTimes(4);
+    expect(fetch).toHaveBeenCalledTimes(6);
     expect(process.exit).toHaveBeenCalledWith(1);
 
     // Restore the original process.exit

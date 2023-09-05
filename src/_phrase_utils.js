@@ -61,7 +61,7 @@ export const checkUploadStatus = async (uploadId) => {
     `File upload successfully initiated.\nChecking status for upload '${uploadId}'`,
   );
   // Set maximum number of retries
-  const MAX_RETRIES = 3;
+  const MAX_RETRIES = 5;
 
   // Get upload status data
   // https://developers.phrase.com/api/#get-/projects/-project_id-/uploads/-id-
@@ -88,7 +88,7 @@ export const checkUploadStatus = async (uploadId) => {
       break;
     }
     // Wait for a few seconds before making the next API call
-    await sleep(5000);
+    await sleep(30000);
 
     // Get upload status again
     uploadStatusResponse = await fetch(`${BASE_API_URL}/uploads/${uploadId}`, {
