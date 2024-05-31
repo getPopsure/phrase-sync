@@ -140,7 +140,7 @@ describe('includeKeysInLocale', () => {
         },
         body: JSON.stringify({
           target_locale_id: 'en',
-          q: '*',
+          q: '*.*',
         }),
       }),
     );
