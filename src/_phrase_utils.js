@@ -186,7 +186,7 @@ export const includeKeysInLocale = async (locale) => {
       // Set target locale
       target_locale_id: locale,
       // Set query to "all"
-      q: '*',
+      q: '*.*',
     }),
   });
 
